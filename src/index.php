@@ -3,6 +3,8 @@
 require_once __DIR__ . '/controller/registerController.php';
 require_once __DIR__ . '/controller/homeController.php';
 
+require_once __DIR__ . '/database/database.php';
+
 $routes = [
     '/' => ['controller' => "homeController", "method" => "home"],
     '/register' => ['controller' => "registerController", "method" => "register"],

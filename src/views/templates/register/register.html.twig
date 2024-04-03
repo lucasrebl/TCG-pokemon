@@ -4,15 +4,29 @@
 {% endblock %}
 
 {% block stylesheet %}
-    <link href="/../public/css/login.css" rel="stylesheet">
+<link href="/../public/css/login.css" rel="stylesheet">
 {% endblock %}
 
 {% block header %}
-	<h3>test register</h3>
+<h3>test register</h3>
 {% endblock %}
 
 {% block body %}
+<form action="/register" method="post" id="formRegister">
+    <label for="firstName">firstName:</label>
+    <input type="text" name="firstName" id="firstName" required>
 
+    <label for="lastName">lastName:</label>
+    <input type="text" name="lastName" id="lastName" required>
+
+    <label for="email">email:</label>
+    <input type="text" name="email" id="email" required>
+
+    <label for="passwordUser">password:</label>
+    <input type="password" name="passwordUser" id="passwordUser" required>
+
+    <input type="submit" name="submit" value="submit" id="submit">
+</form>
 {% endblock %}
 
 {% block footer %}{% endblock %}
