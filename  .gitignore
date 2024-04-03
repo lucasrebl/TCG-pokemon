@@ -4,8 +4,8 @@
 docker-compose.yaml
 Dockerfile
 .htaccess
-*composer.lock
-*composer.json
+composer.lock
+composer.json
 
 # Dossiers
 /vendor/
