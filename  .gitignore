@@ -8,4 +8,4 @@ Dockerfile
 *composer.json
 
 # Dossiers
-vendor/
+/vendor/
