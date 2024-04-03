@@ -5,7 +5,7 @@ use Twig\Loader\FilesystemLoader;
 
 require 'vendor/autoload.php';
 
-class homeController
+class profilController
 {
     protected $twig;
     private $loader;
@@ -16,11 +16,19 @@ class homeController
         $this->twig = new Environment($this->loader);
     }
 
-    public function home()
+    public function profil()
     {
         session_start();
         var_dump($_SESSION);
-        echo $this->twig->render('home/home.html.twig');
+        $user = [
+            'idUser' => $_SESSION['idUser']
+        ];
+
+        if ($user['idUser'] < 1) {
+            echo "veuiller vous connecter ou créer un compte pour avoir accés a votre profil";
+        }
+
+        echo $this->twig->render('profil/profil.html.twig');
         $this->logOut();
     }
 

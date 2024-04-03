@@ -1,26 +1,17 @@
 {% extends "default.html.twig" %}
 
-{% block title %}home
+{% block title %}profil
 {% endblock %}
 
 {% block stylesheet %}
-    <link href="/../public/css/home.css" rel="stylesheet">
+    <link href="/../public/css/profil.css" rel="stylesheet">
 {% endblock %}
 
 {% block header %}
-	<h3>test home</h3>
+	<h3>test profil</h3>
 {% endblock %}
 
 {% block body %}
-<button>
-    <a href="/profil">profil</a>
-</button>
-<button>
-    <a href="/register">register</a>
-</button>
-<button>
-    <a href="/login">login</a>
-</button>
 <form action="/" method="post">
     <input type="submit" name="logOut" value="LogOut">
 </form>
