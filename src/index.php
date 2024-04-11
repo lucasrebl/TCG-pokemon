@@ -2,10 +2,14 @@
 
 require_once __DIR__ . '/controller/registerController.php';
 require_once __DIR__ . '/controller/homeController.php';
+require_once __DIR__ . '/controller/shopController.php';
+
 
 $routes = [
     '/' => ['controller' => "homeController", "method" => "home"],
     '/register' => ['controller' => "registerController", "method" => "register"],
+    '/shop' => ['controller' => "shopController", "method" => "shop"],
+
 ];
 
 $requestParts = explode('?', $_SERVER['REQUEST_URI'], 2);

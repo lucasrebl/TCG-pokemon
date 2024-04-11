@@ -5,7 +5,7 @@ use Twig\Loader\FilesystemLoader;
 
 require 'vendor/autoload.php';
 
-class registerController
+class shopController
 {
     protected $twig;
     private $loader;
@@ -16,8 +16,8 @@ class registerController
         $this->twig = new Environment($this->loader);
     }
 
-    public function register()
+    public function shop()
     {
-        echo $this->twig->render('register/register.html.twig');
+        echo $this->twig->render('shop/shop.html.twig');
     }
 }
