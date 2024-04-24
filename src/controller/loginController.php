@@ -20,9 +20,17 @@ class loginController
     {
         session_start();
         // var_dump($_SESSION);
+        $isConnected = false;
+
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['idUser'])) {
+            // Si l'utilisateur est connecté, setIsConnected à true
+            $isConnected = true;
+            
+        }
         include __DIR__ . '/../model/loginModel.php';
         $this->getLogin();
-        echo $this->twig->render('login/login.html.twig');
+        echo $this->twig->render('login/login.html.twig', ['isConnected' => $isConnected]);
     }
 
     public function getLogin()

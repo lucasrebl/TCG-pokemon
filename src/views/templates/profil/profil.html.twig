@@ -8,13 +8,13 @@
 {% endblock %}
 
 {% block header %}
-	<h3>test profil</h3>
 {% endblock %}
 
 {% block body %}
-<form action="/" method="post">
-    <input type="submit" name="logOut" value="LogOut">
-</form>
+{% include 'header.html.twig' %}
+<h3>test profil</h3>
+
+
 {% endblock %}
 
 {% block footer %}{% endblock %}

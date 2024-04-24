@@ -19,16 +19,24 @@ class profilController
     public function profil()
     {
         session_start();
-        var_dump($_SESSION);
         $user = [
             'idUser' => $_SESSION['idUser']
         ];
+        $isConnected = false;
+
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['idUser'])) {
+            // Si l'utilisateur est connecté, setIsConnected à true
+            $isConnected = true;
+            
+        }
+        var_dump($_SESSION);
 
         if ($user['idUser'] < 1) {
             echo "veuiller vous connecter ou créer un compte pour avoir accés a votre profil";
         }
 
-        echo $this->twig->render('profil/profil.html.twig');
+        echo $this->twig->render('profil/profil.html.twig', ['isConnected' => $isConnected]);
         $this->logOut();
     }
 
