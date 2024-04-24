@@ -5,6 +5,8 @@
 {% endblock %}
 {% block stylesheet %}
 <link href="/../public/css/home.css" rel="stylesheet">
+<link rel="stylesheet" href="public/css/home.css">
+
 {% endblock %}
 
 {% block header %}
@@ -12,14 +14,22 @@
     <a href="/" style="text-decoration: none; color: inherit;">
         <h3>TCG Pokemon</h3>
     </a>
+    {% if isConnected %}
     <div class="buttons">
         <a href="/profil"><button>profil</button></a>
+        <form action="/" method="post">
+            <a href="/shop">Shop</a>
+            <input action="/" type="submit" name="logOut" value="LogOut">
+        </form>
+        {% else %}
         <a href="/register"><button>register</button></a>
         <a href="/login"><button>login</button></a>
+
         <form action="/" method="post">
             <input type="submit" name="logOut" value="LogOut">
         </form>
     </div>
+    {%endif%}
 </header>
 {% endblock %}
 
@@ -34,8 +44,6 @@
 <h3>test home</h3>
 {% endblock %}
 
-{% block body %}
 
-{% endblock %}
 
 {% block footer %}{% endblock %}
