@@ -36,7 +36,7 @@ Informations détaillées disponibles pour chaque carte, y compris l'histoire, l
 ## Compatibilité : Accessible sur tous les appareils (PC, smartphones, tablettes).
 ## Performances : Temps de chargement optimisés et expérience fluide.
 ## Accès complet à notre base de données Pokémon.
-## Accès aux cartes pokémon en CSS : https://github.com/simeydotme/pokemon-cards-css
+<!-- ## Accès aux cartes pokémon en CSS : https://github.com/simeydotme/pokemon-cards-css -->
 ## Support technique et conseil tout au long du développement du projet.
 ## Promotion du site web sur nos canaux officiels, en reconnaissant votre contribution.
 # Livrables
