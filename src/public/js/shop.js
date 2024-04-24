@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pokemonIds = pokemonData.map(pokemon => pokemon.id);
             
             // Envoyer les IDs au contrôleur PHP
-            fetch('/controller/shopController.php', {
+            fetch('/shop', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
