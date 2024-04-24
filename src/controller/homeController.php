@@ -19,7 +19,7 @@ class homeController
     public function home()
     {
         session_start();
-        var_dump($_SESSION);
+     
         echo $this->twig->render('home/home.html.twig');
         $this->logOut();
     }

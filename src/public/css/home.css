@@ -2,8 +2,15 @@ body {
     background-image: url('../css/back.png');
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
+    padding: 0;
 }
+
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: black;
     color: white;
     padding: 10px;
@@ -11,25 +18,47 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
-header div {
+header .buttons {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 header button {
     background-color: white;
-    color: black;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    /* height: 70px; */
+    width: 120px;
+    border-radius: 20px;
+    font-weight: bold;
 }
+
+header .buttons a:nth-child(2) button {
+    background-color: rgb(22, 22, 219);
+}
+
+header .buttons a:nth-child(3) button {
+    background-color: rgb(203, 59, 59);
+}
+
 
 header button:hover {
     background-color: lightgray;
 }
 
+header h3 {
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
