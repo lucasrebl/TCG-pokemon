@@ -32,18 +32,18 @@ Sécurité et Protection des Données
 Tests et Assurance Qualité
 Support de Nintendo
 Informations détaillées disponibles pour chaque carte, y compris l'histoire, les statistiques, et les capacités dans le jeu de cartes à collectionner.
-# Sécurité : Protection des données utilisateurs et transactions sécurisées.
-# Compatibilité : Accessible sur tous les appareils (PC, smartphones, tablettes).
-# Performances : Temps de chargement optimisés et expérience fluide.
-# Accès complet à notre base de données Pokémon.
-# Accès aux cartes pokémon en CSS : https://github.com/simeydotme/pokemon-cards-css
-# Support technique et conseil tout au long du développement du projet.
-# Promotion du site web sur nos canaux officiels, en reconnaissant votre contribution.
-## Livrables
-Créer un cahier des charges détaillé en collaboration avec l'équipe de Nintendo.
-Développer le site web selon les spécifications techniques et fonctionnelles établies.
-Assurer la compatibilité sur différents appareils et navigateurs.
-Mettre en œuvre des mesures de sécurité pour protéger les données des utilisateurs et les transactions financières.
-Respecter la législation en vigueur concernant la protection des données personnelles.
-Effectuer des tests complets pour s'assurer que le site fonctionne correctement sur tous les appareils et navigateurs.
-Corriger les bugs et problèmes signalés dans les plus brefs délais.
+## Sécurité : Protection des données utilisateurs et transactions sécurisées.
+## Compatibilité : Accessible sur tous les appareils (PC, smartphones, tablettes).
+## Performances : Temps de chargement optimisés et expérience fluide.
+## Accès complet à notre base de données Pokémon.
+## Accès aux cartes pokémon en CSS : https://github.com/simeydotme/pokemon-cards-css
+## Support technique et conseil tout au long du développement du projet.
+## Promotion du site web sur nos canaux officiels, en reconnaissant votre contribution.
+# Livrables
+- Créer un cahier des charges détaillé en collaboration avec l'équipe de Nintendo.
+- Développer le site web selon les spécifications techniques et fonctionnelles établies.
+- Assurer la compatibilité sur différents appareils et navigateurs.
+- Mettre en œuvre des mesures de sécurité pour protéger les données des utilisateurs et les transactions financières.
+- Respecter la législation en vigueur concernant la protection des données personnelles.
+- Effectuer des tests complets pour s'assurer que le site fonctionne correctement sur tous les appareils et navigateurs.
+- Corriger les bugs et problèmes signalés dans les plus brefs délais.
