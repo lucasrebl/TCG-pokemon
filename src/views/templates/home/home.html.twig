@@ -5,29 +5,29 @@
 
 {% block stylesheet %}
 <link href="/../public/css/home.css" rel="stylesheet">
-
-
 {% endblock %}
 
 {% block header %}
-<h3>test home</h3>
+<header>
+    <h3>Home</h3>
+    <div>
+        <button>
+            <a href="/profil">profil</a>
+        </button>
+        <button>
+            <a href="/register">register</a>
+        </button>
+        <button>
+            <a href="/login">login</a>
+        </button>
+        <form action="/" method="post">
+            <input type="submit" name="logOut" value="LogOut">
+        </form>
+    </div>
+</header>
 {% endblock %}
 
 {% block body %}
-<button>
-    <a href="/profil">profil</a>
-</button>
-<button>
-    <a href="/register">register</a>
-</button>
-<button>
-    <a href="/login">login</a>
-</button>
-<form action="/" method="post">
-    <input type="submit" name="logOut" value="LogOut">
-</form>
 {% endblock %}
-
-
 
 {% block footer %}{% endblock %}
