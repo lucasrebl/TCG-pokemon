@@ -1,10 +1,10 @@
-## Nintendo Pokémon Card Collector
+# Nintendo Pokémon Card Collector
 Ce projet vise à créer une expérience interactive pour les fans de Pokémon en permettant aux utilisateurs d'ouvrir des packs de cartes Pokémon virtuelles sur un site web dédié. Cette plateforme offrira une expérience utilisateur immersive et ludique, tout en respectant les directives de la marque et les droits d'auteur associés.
 
-## Contexte
+# Contexte
 Nintendo est une entreprise multinationale japonaise fondée en 1889 par Fusajiro Yamauchi. Initialement, elle produisait des cartes à jouer traditionnelles japonaises appelées Hanafuda. Au fil des années, Nintendo a diversifié ses activités pour devenir l'un des leaders mondiaux de l'industrie du jeu vidéo.
 
-## Public cible
+# Public cible
 Fans de Pokémon de tous âges
 Collectionneurs de cartes Pokémon
 Joueurs du jeu de cartes à collectionner Pokémon
