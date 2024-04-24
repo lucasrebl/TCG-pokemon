@@ -22,40 +22,33 @@ $dsn->exec($createTableUser);
 $createTableCard = ("CREATE TABLE IF NOT EXISTS
 `card` (
   `idCard` int(11) NOT NULL AUTO_INCREMENT,
-  `set` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `superType` varchar(255) DEFAULT NULL,
-  `subTypes` varchar(255) DEFAULT NULL,
-  `types` varchar(255) DEFAULT NULL,
-  `numPokedex` int(11) NOT NULL,
-  `rarity` varchar(255) DEFAULT NULL,
-  `imageSmall` LONGBLOB DEFAULT NULL,
-  `imageLarge` LONGBLOB DEFAULT NULL,
-  PRIMARY KEY (`idCard`)
+  `idApi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idCard`),
+  CONSTRAINT unique_idApi UNIQUE (`idApi`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");
 $dsn->exec($createTableCard);
 
-$createTablePacks = ("CREATE TABLE IF NOT EXISTS
-`packs` (
-  `idPacks` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `rarity` varchar(255) DEFAULT NULL,
-  `idUser` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPacks`),
-  CONSTRAINT fk_idUser FOREIGN KEY (`idUser`) REFERENCES user (`idUser`)
-) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");
-$dsn->exec($createTablePacks);
+// $createTablePacks = ("CREATE TABLE IF NOT EXISTS
+// `packs` (
+//   `idPacks` int(11) NOT NULL AUTO_INCREMENT,
+//   `name` varchar(255) DEFAULT NULL,
+//   `rarity` varchar(255) DEFAULT NULL,
+//   `idUser` int(11) DEFAULT NULL,
+//   PRIMARY KEY (`idPacks`),
+//   CONSTRAINT fk_idUser FOREIGN KEY (`idUser`) REFERENCES user (`idUser`)
+// ) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");
+// $dsn->exec($createTablePacks);
 
-$createTableCardPacks = ("CREATE TABLE IF NOT EXISTS
-`cardPacks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idCard` int(11) DEFAULT NULL,
-  `idPacks` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT fk_idCard FOREIGN KEY (`idCard`) REFERENCES card (`idCard`),
-  CONSTRAINT fk_idPacks FOREIGN KEY (`idPacks`) REFERENCES packs (`idPacks`)
-) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");
-$dsn->exec($createTableCardPacks);
+// $createTableCardPacks = ("CREATE TABLE IF NOT EXISTS
+// `cardPacks` (
+//   `id` int(11) NOT NULL AUTO_INCREMENT,
+//   `idCard` int(11) DEFAULT NULL,
+//   `idPacks` int(11) DEFAULT NULL,
+//   PRIMARY KEY (`id`),
+//   CONSTRAINT fk_idCard FOREIGN KEY (`idCard`) REFERENCES card (`idCard`),
+//   CONSTRAINT fk_idPacks FOREIGN KEY (`idPacks`) REFERENCES packs (`idPacks`)
+// ) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");
+// $dsn->exec($createTableCardPacks);
 
 $createTableCollection = ("CREATE TABLE IF NOT EXISTS
 `collection` (
