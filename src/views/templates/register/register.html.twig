@@ -8,16 +8,13 @@
 {% endblock %}
 
 {% block header %}
-<h3>test register</h3>
 {% endblock %}
 
 {% block body %}
-<button>
-    <a href="/login">login</a>
-</button>
-<button>
-    <a href="/">home</a>
-</button>
+{% include 'header.html.twig' %}
+<h3>test register</h3>
+
+
 <form action="/register" method="post" id="formRegister">
     <label for="firstName">firstName:</label>
     <input type="text" name="firstName" id="firstName" required>

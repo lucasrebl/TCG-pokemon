@@ -1,3 +1,4 @@
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,25 +8,33 @@
     <title>Navbar Example</title>
     <!-- Assurez-vous d'inclure le CSS pour FontAwesome si vous utilisez des icônes fa -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="public/css/header.css">
 </head>
 
 <body>
+    {% if isConnected %}
+    <!-- En-tête pour utilisateur connecté -->
     <div class="navbar">
-        <div class="navbar-logo"></div>
-        <a href="/">Home</a>
-        {% if isConnected %}
-
-        <a href="#play">Play</a>
-        <div class="navbar-right">
-            <a href="/profil"><i class="fa-regular fa-user fa-3x"></i></a>
-            <!-- Le lien de déconnexion s'affiche seulement quand l'utilisateur est connecté -->
-            <a href="/logout"><i class="fa-solid fa-right-to-bracket fa-3x"></i> Logout</a>
-        </div>
-        {% else %}
-        <!-- Les liens Register et Login s'affichent seulement si l'utilisateur n'est pas connecté -->
-        <a href="/register">Register</a>
-        <a href="/login">Login</a>
-        {% endif %}
+        <a href="/"><img src="./../../../src/public/img/pokedex-removebg-preview 1.png" alt="">Home</a>
+        <a href="/shop">Shop</a>
+        <a href="/profil"><i class="far fa-user fa-3x"></i></a>
+        <form action="/" method="post">
+            <input action="/" type="submit" name="logOut" value="LogOut">
+            <button class="boutton-header-logout"><a href="/" name="logOut">Logout</a></button>
+        </form>
     </div>
+    {% else %}
+    <!-- En-tête pour utilisateur non connecté -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <div class="right">
+            <button class="boutton register"><a href="/register">Register</a></button>
+            <button class="boutton login"><a href="/login">Login</a></button>
+        </div>
+
+    </div>
+    {% endif %}
 </body>
+
 </html>
+{% endblock %}

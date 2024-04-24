@@ -18,9 +18,17 @@ class registerController
 
     public function register()
     {
+        $isConnected = false;
+
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['idUser'])) {
+            // Si l'utilisateur est connecté, setIsConnected à true
+            $isConnected = true;
+            
+        }
         include __DIR__ . '/../model/registerModel.php';
         $this->getRegister();
-        echo $this->twig->render('register/register.html.twig');
+        echo $this->twig->render('register/register.html.twig',['isConnected' => $isConnected]);
     }
 
     public function getRegister()
