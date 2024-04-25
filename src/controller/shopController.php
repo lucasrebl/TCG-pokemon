@@ -51,9 +51,9 @@ class shopController
             'idUser' => $_SESSION['idUser']
         ];
         if (isset($_POST['pack5'])) {
-            // $id5Card = $this->get5IdCardRandom();
+            $id5Card = $this->get5IdCardRandom();
             $idUser = $user['idUser'];
-            buyPackOf5($idUser);
+            buyPackOf5($idUser, $id5Card);
         }
     }
 
@@ -61,7 +61,8 @@ class shopController
     {
         $this->connectDb();
         $query = "SELECT idCard FROM card ORDER BY RAND() LIMIT 5";
-        $id5Card = $this->dsn->query($query);
+        $stmt = $this->dsn->query($query);
+        $id5Card = $stmt->fetchAll(PDO::FETCH_COLUMN);
         return $id5Card;
     }
 }

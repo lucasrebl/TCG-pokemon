@@ -40,7 +40,7 @@ function insertIdOfCard($pokemonIds)
     }
 }
 
-function buyPackOf5($idUser)
+function buyPackOf5($idUser, $id5Card)
 {
     try {
         $dsn = new PDO("mysql:host=mysql;dbname=my_database", "my_user", "my_password");
@@ -67,6 +67,17 @@ function buyPackOf5($idUser)
         $stmt->bindParam(':idUser', $idUser);
 
         if ($stmt->execute()) {
+            // Récupérer l'ID du pack nouvellement créé
+            $idPack = $dsn->lastInsertId();
+
+            // Insérer les cinq ID de carte dans cardPacks
+            $stmtInsertCards = $dsn->prepare("INSERT INTO cardPacks (idCard, idPacks) VALUES (:idCard, :idPacks)");
+            foreach ($id5Card as $idCard) {
+                $stmtInsertCards->bindParam(':idCard', $idCard, PDO::PARAM_INT);
+                $stmtInsertCards->bindParam(':idPacks', $idPack, PDO::PARAM_INT);
+                $stmtInsertCards->execute();
+            }
+
             echo "Pack acheté.";
         } else {
             echo "Échec de l'achat du pack.";
