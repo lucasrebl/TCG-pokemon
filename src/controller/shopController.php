@@ -25,6 +25,7 @@ class shopController
         include __DIR__ . '/../model/shopModel.php';
         $this->insertCardID();
         $this->buyPack5();
+        $this->buyPack10();
         echo $this->twig->render('shop/shop.html.twig');
     }
 
@@ -64,5 +65,26 @@ class shopController
         $stmt = $this->dsn->query($query);
         $id5Card = $stmt->fetchAll(PDO::FETCH_COLUMN);
         return $id5Card;
+    }
+
+    public function buyPack10()
+    {
+        $user = [
+            'idUser' => $_SESSION['idUser']
+        ];
+        if (isset($_POST['pack10'])) {
+            $id10Card = $this->get10IdCardRandom();
+            $idUser = $user['idUser'];
+            buyPackOf10($id10Card, $idUser);
+        };
+    }
+
+    public function get10IdCardRandom()
+    {
+        $this->connectDb();
+        $query = "SELECT idCard FROM card ORDER BY RAND() LIMIT 10";
+        $stmt = $this->dsn->query($query);
+        $id10Card = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        return $id10Card;
     }
 }
