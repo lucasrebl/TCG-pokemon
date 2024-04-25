@@ -130,3 +130,47 @@ function buyPackOf10($id10Card, $idUser)
         echo $error;
     }
 }
+
+
+function buyPackOf15($id15Card, $idUser)
+{
+    try {
+        $dsn = new PDO("mysql:host=mysql;dbname=my_database", "my_user", "my_password");
+        $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $baseName = "pack15_" . $idUser . "_";
+
+        $stmtCheck = $dsn->prepare("SELECT COUNT(*) FROM packs WHERE name LIKE :name");
+        $stmtCheck->bindValue(':name', $baseName . '%');
+        $stmtCheck->execute();
+        $count = $stmtCheck->fetchColumn();
+
+        if ($count > 0) {
+            $newName = $baseName . ($count + 1);
+        } else {
+            $newName = $baseName . "1";
+        }
+
+        $stmt = $dsn->prepare("INSERT INTO packs (name, idUser) VALUES (:name, :idUser)");
+        $stmt->bindParam(':name', $newName);
+        $stmt->bindParam(':idUser', $idUser);
+
+        if ($stmt->execute()) {
+            $idPack = $dsn->lastInsertId();
+
+            $stmtInsertCards = $dsn->prepare("INSERT INTO cardPacks (idCard, idPacks) VALUES (:idCard, :idPack)");
+            foreach ($id15Card as $idCard) {
+                $stmtInsertCards->bindParam(':idCard', $idCard, PDO::PARAM_INT);
+                $stmtInsertCards->bindParam(':idPack', $idPack, PDO::PARAM_INT);
+                $stmtInsertCards->execute();
+            }
+            echo "Pack de 15 card acheté.";
+        } else {
+            echo "Échec de l'achat du pack de 15 card.";
+
+        }
+    } catch (PDOException $e) {
+        $error  = "Erreur : " . $e->getMessage();
+        echo $error;
+    }
+}
