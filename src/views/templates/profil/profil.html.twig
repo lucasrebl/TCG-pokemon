@@ -29,12 +29,16 @@
 </button>
 
 <div class="test">
-    {% for packs in readPacksName %}
+    {% for pack in readPacksName %}
     <div class="test2">
-        <p>{{ packs.name }}</p>
+        <form action="/profil" method="post">
+            <input type="hidden" name="pack_name" value="{{ pack.name }}">
+            <button type="submit" name="open_pack">{{ pack.name }}</button>
+        </form>
     </div>
     {% endfor %}
 </div>
+
 {% endblock %}
 
 {% block footer %}{% endblock %}

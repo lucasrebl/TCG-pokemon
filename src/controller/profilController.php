@@ -22,6 +22,7 @@ class profilController
     {
         session_start();
         var_dump($_SESSION);
+        include __DIR__ . '/../model/profilModel.php';
         $user = [
             'idUser' => $_SESSION['idUser']
         ];
@@ -31,6 +32,7 @@ class profilController
 
         $this->logOut();
         $packsName = $this->getPackByIdUser();
+        $this->openPacks();
         echo $this->twig->render('profil/profil.html.twig', [
             'readPacksName' => $packsName
         ]);
@@ -67,5 +69,18 @@ class profilController
         $packsName = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $packsName;
+    }
+
+    public function openPacks()
+    {
+        $user = [
+            'idUser' => $_SESSION['idUser']
+        ];
+
+        if(isset($_POST['open_pack'])) {
+            $packsName = $_POST['pack_name'];
+            $idUser = $user['idUser'];
+            openPacksOfCard($packsName, $idUser);
+        }
     }
 }
