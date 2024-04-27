@@ -14,6 +14,7 @@ $routes = [
     '/login' => ['controller' => "loginController", 'method' => "login"],
     '/profil' => ['controller' =>"profilController", 'method' => "profil"],
     '/shop' => ['controller' => "shopController", "method" => "shop"],
+    '/google-login' => ['controller' => "loginController", 'method' => "getGoogleLogin"],
 ];
 
 $requestParts = explode('?', $_SERVER['REQUEST_URI'], 2);
