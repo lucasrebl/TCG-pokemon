@@ -19,16 +19,16 @@ class homeController
     public function home()
     {
         session_start();
-        var_dump($_SESSION);
-        echo $this->twig->render('home/home.html.twig');
         $this->logOut();
+        echo $this->twig->render('home/home.html.twig');
     }
+
 
     public function logOut()
     {
         if (isset($_POST['logOut'])) {
             session_unset();
-            session_unset();
+            session_destroy();
             echo '<script>window.location.replace("/login");</script>';
         }
     }
