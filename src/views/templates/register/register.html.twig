@@ -14,22 +14,23 @@
 {% include 'header.html.twig' %}
 <h3>test register</h3>
 
+<div class="container">
+    <form action="/register" method="post" id="formRegister">
+        <label for="firstName">firstName:</label>
+        <input type="text" name="firstName" id="firstName" required>
 
-<form action="/register" method="post" id="formRegister">
-    <label for="firstName">firstName:</label>
-    <input type="text" name="firstName" id="firstName" required>
+        <label for="lastName">lastName:</label>
+        <input type="text" name="lastName" id="lastName" required>
 
-    <label for="lastName">lastName:</label>
-    <input type="text" name="lastName" id="lastName" required>
+        <label for="email">email:</label>
+        <input type="text" name="email" id="email" required>
 
-    <label for="email">email:</label>
-    <input type="text" name="email" id="email" required>
+        <label for="passwordUser">password:</label>
+        <input type="password" name="passwordUser" id="passwordUser" required>
 
-    <label for="passwordUser">password:</label>
-    <input type="password" name="passwordUser" id="passwordUser" required>
-
-    <input type="submit" name="submit" value="submit" id="submit">
-</form>
+        <input type="submit" name="submit" value="submit" id="submit">
+    </form>
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

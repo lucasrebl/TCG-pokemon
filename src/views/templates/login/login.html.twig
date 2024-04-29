@@ -1,4 +1,3 @@
-{% extends "default.html.twig" %}
 
 {% block title %}login
 {% endblock %}
@@ -10,19 +9,18 @@
 
 {% block body %}
 {% include 'header.html.twig' %}
-<h3>test login</h3>
-
-
 </button>
-<form action="/login" method="post">
-    <label for="email">email:</label>
-    <input type="text" name="email" required>
+<div class="container">
+    <form action="/login" method="post">
+        <label for="email">email:</label>
+        <input type="text" name="email" required>
 
-    <label for="passwordConnexion">Mot de Passe</label>
-    <input type="password" name="passwordConnexion" required>
+        <label for="passwordConnexion">Mot de Passe</label>
+        <input type="password" name="passwordConnexion" required>
 
-    <input type="submit" name="submit" value="submit">
-</form>
+        <input type="submit" name="submit" value="submit">
+    </form>
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

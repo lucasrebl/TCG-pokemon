@@ -1,37 +1,16 @@
-{% extends "default.html.twig" %}
 
 {% block title %}home
 
 {% endblock %}
 {% block stylesheet %}
-<link href="/../public/css/home.css" rel="stylesheet">
+<link rel="stylesheet" href="public/css/header.css">
 <link rel="stylesheet" href="public/css/home.css">
-
 {% endblock %}
 
 {% block header %}
-<header>
-    <a href="/" style="text-decoration: none; color: inherit;">
-        <h3>TCG Pokemon</h3>
-    </a>
-    {% if isConnected %}
-    <div class="buttons">
-        <a href="/profil"><button>profil</button></a>
-        <form action="/" method="post">
-            <a href="/shop">Shop</a>
-            <input action="/" type="submit" name="logOut" value="LogOut">
-        </form>
-        {% else %}
-        <a href="/register"><button>register</button></a>
-        <a href="/login"><button>login</button></a>
+{% include 'header.html.twig' %}
 
-        <form action="/" method="post">
-            <button type="submit" name="logOut" class="buttons__button">LogOut</button>
-        </form>
-    </div>
-    {%endif%}
-</header>
-{% endblock %}
+
 
 {% block body %}
 <div class="encadre">
@@ -40,8 +19,7 @@
     <p> - 2 booster packs per month</p>
     <p> - 1 pikachu card</p>
 </div>
-{% include 'header.html.twig' %}
-<h3>test home</h3>
+{% endblock %}
 {% endblock %}
 
 
