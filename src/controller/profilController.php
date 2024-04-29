@@ -33,8 +33,10 @@ class profilController
         $this->logOut();
         $packsName = $this->getPackByIdUser();
         $this->openPacks();
+        $idCard = $this->readCardById();
         echo $this->twig->render('profil/profil.html.twig', [
-            'readPacksName' => $packsName
+            'readPacksName' => $packsName,
+            'readCard' => $idCard
         ]);
     }
 
@@ -77,10 +79,28 @@ class profilController
             'idUser' => $_SESSION['idUser']
         ];
 
-        if(isset($_POST['open_pack'])) {
+        if (isset($_POST['open_pack'])) {
             $packsName = $_POST['pack_name'];
             $idUser = $user['idUser'];
             openPacksOfCard($packsName, $idUser);
         }
+    }
+
+    public function readCardById()
+    {
+        $user = [
+            'idUser' => $_SESSION['idUser']
+        ];
+        $idUser = $user['idUser'];
+
+        $this->connectDb();
+
+        $query = "SELECT idCard FROM collection WHERE idUser = :idUser";
+        $stmt = $this->dsn->prepare($query);
+        $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
+        $stmt->execute();
+        $idCard = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $idCard;
     }
 }
