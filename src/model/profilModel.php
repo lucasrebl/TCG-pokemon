@@ -37,6 +37,11 @@ function openPacksOfCard($packsName, $idUser)
                     $stmt2->bindParam(':idCard', $id);
 
                     if ($stmt2->execute()) {
+                        $updateQuery = "UPDATE packs SET isOpen = 1 WHERE idPacks = :idPack";
+                        $stmtUpdate = $dsn->prepare($updateQuery);
+                        $stmtUpdate->bindParam(':idPack', $idPack);
+                        $stmtUpdate->execute();
+                        
                         echo "pack ouvert";
                     } else {
                         echo "echec ouverture du pack";

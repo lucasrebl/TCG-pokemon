@@ -33,6 +33,7 @@ $createTablePacks = ("CREATE TABLE IF NOT EXISTS
   `idPacks` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `idUser` int(11) DEFAULT NULL,
+  `isOpen` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`idPacks`),
   CONSTRAINT unique_name UNIQUE (`name`),
   CONSTRAINT fk_idUser FOREIGN KEY (`idUser`) REFERENCES user (`idUser`)

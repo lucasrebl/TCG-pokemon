@@ -62,7 +62,7 @@ class profilController
 
         $this->connectDb();
 
-        $query = "SELECT name FROM packs WHERE idUser = :idUser";
+        $query = "SELECT * FROM packs WHERE idUser = :idUser";
         $stmt = $this->dsn->prepare($query);
         $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
