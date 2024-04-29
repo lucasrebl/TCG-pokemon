@@ -41,8 +41,8 @@ function openPacksOfCard($packsName, $idUser)
                         $stmtUpdate = $dsn->prepare($updateQuery);
                         $stmtUpdate->bindParam(':idPack', $idPack);
                         $stmtUpdate->execute();
-                        
-                        echo "pack ouvert";
+
+                        echo "pack ouvert,\n";
                     } else {
                         echo "echec ouverture du pack";
                     }
