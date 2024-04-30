@@ -99,13 +99,18 @@ class profilController
         $stmt = $this->dsn->prepare($query);
         $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
-        $idCard = $stmt->fetchAll(PDO::FETCH_COLUMN); // Utilisez FETCH_COLUMN pour obtenir directement une liste d'identifiants
-        return $idCard;
+        $idCards = $stmt->fetchAll(PDO::FETCH_COLUMN); // Utilisez FETCH_COLUMN pour obtenir directement une liste d'identifiants
+        return $idCards;
     }
 
     public function displayCard($idCards)
     {
         $this->connectDb();
+
+        if (empty($idCards)) {
+            // Si la liste d'identifiants est vide, retournez une liste vide
+            return [];
+        }
 
         $idCardPlaceholders = implode(',', array_fill(0, count($idCards), '?')); // Créer les placeholders pour la clause IN
 
