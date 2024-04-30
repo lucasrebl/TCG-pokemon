@@ -3,11 +3,11 @@
 require_once './database/connect.php';
 
 
-function insertIdOfCard($pokemonIds)
+function insertCardData($pokemonData)
 {
     try {
-        // Vérifier si $pokemonIds est nul
-        if ($pokemonIds === null) {
+        // Vérifier si $pokemonData est nul
+        if ($pokemonData === null) {
             echo "Aucune donnée à insérer.";
             return;
         }
@@ -15,8 +15,12 @@ function insertIdOfCard($pokemonIds)
         $dsn = new PDO("mysql:host=mysql;dbname=my_database", "my_user", "my_password");
         $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Parcourir les IDs des cartes Pokémon
-        foreach ($pokemonIds as $id) {
+        // Parcourir les données des cartes Pokémon
+        foreach ($pokemonData as $pokemon) {
+            $id = $pokemon['id'];
+            $smallImageUrl = $pokemon['images']['small'];
+            $largeImageUrl = $pokemon['images']['large'];
+
             // Vérifier si l'ID existe déjà dans la base de données
             $checkQuery = "SELECT COUNT(*) FROM card WHERE idApi = :idApi";
             $stmt = $dsn->prepare($checkQuery);
@@ -24,11 +28,13 @@ function insertIdOfCard($pokemonIds)
             $stmt->execute();
             $count = $stmt->fetchColumn();
 
-            // Si l'ID n'existe pas, l'insérer
+            // Si l'ID n'existe pas, l'insérer avec les URLs des images
             if ($count == 0) {
-                $insertQuery = "INSERT INTO card (idApi) VALUES (:idApi)";
+                $insertQuery = "INSERT INTO card (idApi, small_image_url, large_image_url) VALUES (:idApi, :smallImageUrl, :largeImageUrl)";
                 $stmt = $dsn->prepare($insertQuery);
                 $stmt->bindParam(':idApi', $id);
+                $stmt->bindParam(':smallImageUrl', $smallImageUrl);
+                $stmt->bindParam(':largeImageUrl', $largeImageUrl);
                 $stmt->execute();
             }
         }
@@ -39,6 +45,7 @@ function insertIdOfCard($pokemonIds)
         echo $error;
     }
 }
+
 
 function buyPackOf5($idUser, $id5Card)
 {
@@ -123,7 +130,6 @@ function buyPackOf10($id10Card, $idUser)
             echo "Pack de 10 card acheté.";
         } else {
             echo "Échec de l'achat du pack de 10 card.";
-
         }
     } catch (PDOException $e) {
         $error  = "Erreur : " . $e->getMessage();
@@ -167,7 +173,6 @@ function buyPackOf15($id15Card, $idUser)
             echo "Pack de 15 card acheté.";
         } else {
             echo "Échec de l'achat du pack de 15 card.";
-
         }
     } catch (PDOException $e) {
         $error  = "Erreur : " . $e->getMessage();

@@ -40,8 +40,9 @@
     {% endif %}
     {% endfor %}
 
-    {% for collection in readCard %}
+    {% for collection in displayCard %}
         <p>{{ collection.idCard }}</p>
+        <img src="{{ collection.small_image_url }}" alt="Card Image">
     {% endfor %}
 </div>
 

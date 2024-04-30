@@ -12,27 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const fileContent = atob(data.content);
             pokemonData = JSON.parse(fileContent);
 
-            // Extraire les IDs des cartes
-            pokemonIds = pokemonData.map(pokemon => pokemon.id);
-            
-            // Envoyer les IDs au contrôleur PHP
+            // Extraire les IDs et les URLs des images des cartes
+            const pokemonInfo = pokemonData.map(pokemon => ({
+                id: pokemon.id,
+                images: pokemon.images
+            }));
+
+            // Envoyer les IDs et les URLs des images au contrôleur PHP
             fetch('/shop', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(pokemonIds)
+                body: JSON.stringify(pokemonInfo)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erreur HTTP ' + response.status);
-                }
-                console.log('IDs des cartes Pokémon envoyés avec succès !')
-            })
-            .catch(error => console.error('Erreur lors de l\'envoi des IDs des cartes Pokémon:', error));
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur HTTP ' + response.status);
+                    }
+                    console.log('Données des cartes Pokémon envoyées avec succès !')
+                })
+                .catch(error => console.error('Erreur lors de l\'envoi des données des cartes Pokémon:', error));
         })
         .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
-        
+
+
     // Fonction pour sélectionner 10 cartes au hasard
     const selectRandomCards = () => {
         const containerPrincipal = document.getElementById('pokemonList');

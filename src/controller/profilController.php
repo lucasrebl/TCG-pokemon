@@ -32,11 +32,11 @@ class profilController
 
         $this->logOut();
         $packsName = $this->getPackByIdUser();
-        $this->openPacks();
         $idCard = $this->readCardById();
+        $cardDisplay = $this->displayCard($idCard); // Passer les identifiants des cartes à la méthode displayCard
         echo $this->twig->render('profil/profil.html.twig', [
             'readPacksName' => $packsName,
-            'readCard' => $idCard
+            'displayCard' => $cardDisplay,
         ]);
     }
 
@@ -99,8 +99,21 @@ class profilController
         $stmt = $this->dsn->prepare($query);
         $stmt->bindParam(':idUser', $idUser, PDO::PARAM_INT);
         $stmt->execute();
-        $idCard = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+        $idCard = $stmt->fetchAll(PDO::FETCH_COLUMN); // Utilisez FETCH_COLUMN pour obtenir directement une liste d'identifiants
         return $idCard;
+    }
+
+    public function displayCard($idCards)
+    {
+        $this->connectDb();
+
+        $idCardPlaceholders = implode(',', array_fill(0, count($idCards), '?')); // Créer les placeholders pour la clause IN
+
+        $query = "SELECT * FROM card WHERE idCard IN ($idCardPlaceholders)";
+        $stmt = $this->dsn->prepare($query);
+        $stmt->execute($idCards); // Passer la liste d'identifiants comme paramètres
+        $cardDisplay = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $cardDisplay;
     }
 }

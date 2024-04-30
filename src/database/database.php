@@ -23,6 +23,8 @@ $createTableCard = ("CREATE TABLE IF NOT EXISTS
 `card` (
   `idCard` int(11) NOT NULL AUTO_INCREMENT,
   `idApi` varchar(255) DEFAULT NULL,
+  `small_image_url` VARCHAR(255),
+  `large_image_url` VARCHAR(255),
   PRIMARY KEY (`idCard`),
   CONSTRAINT unique_idApi UNIQUE (`idApi`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 14 DEFAULT CHARSET = latin1");

@@ -43,7 +43,7 @@ class shopController
             $pokemonIds = json_decode(file_get_contents('php://input'), true);
 
             // Insérer les IDs dans la base de données
-            insertIdOfCard($pokemonIds);
+            insertCardData($pokemonIds);
         }
     }
 
