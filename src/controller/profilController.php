@@ -32,6 +32,7 @@ class profilController
 
         $this->logOut();
         $packsName = $this->getPackByIdUser();
+        $this->openPacks();
         $idCard = $this->readCardById();
         $cardDisplay = $this->displayCard($idCard); // Passer les identifiants des cartes à la méthode displayCard
         echo $this->twig->render('profil/profil.html.twig', [

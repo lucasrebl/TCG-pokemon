@@ -29,12 +29,12 @@
 </button>
 
 <div class="test">
-    {% for pack in readPacksName %}
+    {% for packs in readPacksName %}
     {% if pack.isOpen == 0 %}
     <div class="test2">
         <form action="/profil" method="post">
-            <input type="hidden" name="pack_name" value="{{ pack.name }}">
-            <button type="submit" name="open_pack">{{ pack.name }}</button>
+            <input type="hidden" name="pack_name" value="{{ packs.name }}">
+            <button type="submit" name="open_pack">{{ packs.name }}</button>
         </form>
     </div>
     {% endif %}
