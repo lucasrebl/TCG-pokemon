@@ -21,7 +21,6 @@ class shopController
     public function shop()
     {
         session_start();
-        var_dump($_SESSION);
         include __DIR__ . '/../model/shopModel.php';
         $this->insertCardID();
         $this->buyPack5();

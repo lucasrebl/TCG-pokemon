@@ -10,22 +10,10 @@
 {% endblock %}
 
 {% block body %}
+{% include 'header.html.twig' %}
 <form action="/" method="post">
     <input type="submit" name="logOut" value="LogOut">
 </form>
-
-<button>
-    <a href="/">home</a>
-</button>
-<button>
-    <a href="/register">register</a>
-</button>
-<button>
-    <a href="/login">login</a>
-</button>
-<button>
-    <a href="/shop">shop</a>
-</button>
 
 <div class="test">
     {% for packs in readPacksName %}
@@ -44,7 +32,6 @@
         <img src="{{ collection.small_image_url }}" alt="Card Image">
     {% endfor %}
 </div>
-
 {% endblock %}
 
 {% block footer %}{% endblock %}

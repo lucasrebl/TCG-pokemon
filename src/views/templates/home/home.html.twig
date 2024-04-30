@@ -1,4 +1,3 @@
-
 {% block title %}home
 
 {% endblock %}
@@ -8,24 +7,10 @@
 {% endblock %}
 
 {% block header %}
-{% include 'header.html.twig' %}
-
-
+{% endblock %}
 
 {% block body %}
-<button>
-    <a href="/profil">profil</a>
-</button>
-<button>
-    <a href="/register">register</a>
-</button>
-<button>
-    <a href="/login">login</a>
-</button>
-<form action="/" method="post">
-    <input type="submit" name="logOut" value="LogOut">
-</form>
-
+{% include 'header.html.twig' %}
 <script src="/../public/js/shop.js"></script>
 
 <div class="encadre">
@@ -35,7 +20,4 @@
     <p> - 1 pikachu card</p>
 </div>
 {% endblock %}
-
-
-
 {% block footer %}{% endblock %}

@@ -21,7 +21,6 @@ class profilController
     public function profil()
     {
         session_start();
-        var_dump($_SESSION);
         include __DIR__ . '/../model/profilModel.php';
         $user = [
             'idUser' => $_SESSION['idUser']
