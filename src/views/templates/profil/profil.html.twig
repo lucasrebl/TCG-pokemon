@@ -11,20 +11,18 @@
 
 {% block body %}
 {% include 'header.html.twig' %}
-<form action="/" method="post">
-    <input type="submit" name="logOut" value="LogOut">
-</form>
+
 
 <div class="test">
     {% for packs in readPacksName %}
-    {% if pack.isOpen == 0 %}
-    <div class="test2">
-        <form action="/profil" method="post">
-            <input type="hidden" name="pack_name" value="{{ packs.name }}">
-            <button type="submit" name="open_pack">{{ packs.name }}</button>
-        </form>
-    </div>
-    {% endif %}
+        {% if packs.isOpen == 0 %}
+            <div class="test2">
+                <form action="/profil" method="post">
+                    <input type="hidden" name="pack_name" value="{{ packs.name }}">
+                    <button type="submit" name="open_pack">{{ packs.name }}</button>
+                </form>
+            </div>
+        {% endif %}
     {% endfor %}
 
     {% for collection in displayCard %}
