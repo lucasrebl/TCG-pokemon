@@ -6,6 +6,7 @@ Dockerfile
 .htaccess
 composer.lock
 composer.json
+.DS_Store
 
 # Dossiers
 /vendor/

@@ -1,23 +1,16 @@
-{% extends "default.html.twig" %}
 
 {% block title %}login
 {% endblock %}
 
 {% block stylesheet %}
-    <link href="/../public/css/login.css" rel="stylesheet">
+<link href="/../public/css/login.css" rel="stylesheet">
 {% endblock %}
 
-{% block header %}
-	<h3>test login</h3>
-{% endblock %}
 
 {% block body %}
-<button>
-    <a href="/register">register</a>
+{% include 'header.html.twig' %}
 </button>
-<button>
-    <a href="/">home</a>
-</button>
+<div class="container">
     <form action="/login" method="post">
         <label for="email">email:</label>
         <input type="text" name="email" required>
@@ -27,6 +20,7 @@
 
         <input type="submit" name="submit" value="submit">
     </form>
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

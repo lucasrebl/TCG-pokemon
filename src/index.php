@@ -8,6 +8,9 @@ require_once __DIR__ . '/controller/shopController.php';
 
 require_once __DIR__ . '/database/database.php';
 
+//definir une varibale globale en verifiant les session des user.
+
+
 $routes = [
     '/' => ['controller' => "homeController", 'method' => "home"],
     '/register' => ['controller' => "registerController", 'method' => "register"],
