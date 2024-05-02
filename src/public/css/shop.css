@@ -49,8 +49,18 @@ body {
 }
 
 
+button {
+  background-color: transparent;
+  border: none;
+  margin: 20px;
+}
 
-
+.achat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7.5rem 7.5rem;
+}
 /* 
 
 @media (max-width: 768px) {
@@ -64,4 +74,3 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 } */
-

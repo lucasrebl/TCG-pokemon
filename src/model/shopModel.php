@@ -8,7 +8,7 @@ function insertCardData($pokemonData)
     try {
         // Vérifier si $pokemonData est nul
         if ($pokemonData === null) {
-            echo "Aucune donnée à insérer.";
+            // echo "Aucune donnée à insérer.";
             return;
         }
 
@@ -39,10 +39,10 @@ function insertCardData($pokemonData)
             }
         }
 
-        echo "Les données ont été insérées dans la base de données avec succès.";
+        // echo "Les données ont été insérées dans la base de données avec succès.";
     } catch (PDOException $e) {
         $error  = "error: " . $e->getMessage();
-        echo $error;
+        // echo $error;
     }
 }
 
@@ -85,7 +85,7 @@ function buyPackOf5($idUser, $id5Card)
                 $stmtInsertCards->execute();
             }
 
-            echo "Pack de 5 card acheté.";
+            // echo "Pack de 5 card acheté.";
         } else {
             echo "Échec de l'achat du pack de 5 card.";
         }
@@ -127,7 +127,7 @@ function buyPackOf10($id10Card, $idUser)
                 $stmtInsertCards->bindParam(':idPack', $idPack, PDO::PARAM_INT);
                 $stmtInsertCards->execute();
             }
-            echo "Pack de 10 card acheté.";
+            // echo "Pack de 10 card acheté.";
         } else {
             echo "Échec de l'achat du pack de 10 card.";
         }
@@ -170,7 +170,7 @@ function buyPackOf15($id15Card, $idUser)
                 $stmtInsertCards->bindParam(':idPack', $idPack, PDO::PARAM_INT);
                 $stmtInsertCards->execute();
             }
-            echo "Pack de 15 card acheté.";
+            // echo "Pack de 15 card acheté.";
         } else {
             echo "Échec de l'achat du pack de 15 card.";
         }
