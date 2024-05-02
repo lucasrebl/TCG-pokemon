@@ -1,33 +1,56 @@
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Example</title>
-    <!-- Assurez-vous d'inclure le CSS pour FontAwesome si vous utilisez des icônes fa -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="public/css/header.css">
-    
-    
 </head>
 
 
 {% block content %}
-
 <header>
     <a href="/" style="text-decoration: none; color: inherit;">
         <h3>TCG Pokemon</h3>
     </a>
     <div class="buttons">
         {% if isConnected %}
-        <a href="/profil"><button>profil</button></a>
-        <a href="/shop">Shop</a>
-        <form action="/" method="post">
-            <button type="submit" name="logOut" class="buttons__button">LogOut</button>
-        </form>
+        <ul>
+            <li>
+                <div class="item">
+                    <a href="/">Home</a>
+                    <img src="public/img/pokedex.png" </div>
+            </li>
+            <li>
+                <div class="item">
+                    <a href="/shop">Shop</a>
+                    <img src="public/img/panier.png" </div>
+            </li>
+            <li>
+                <div class="item">
+                    <a href="/packs">My Packs</a>
+                    <img src="public/img/pack.png" </div>
+            </li>
+            <li>
+                <div class="item">
+                    <a href="/profil" id="profil"><button>Profil</button></a>
+                    <img src="public/img/pikachu.svg" </div>
+            </li>
+            <form action="/" method="post">
+                <button type="submit" name="logOut" id="logout" style="
+                background-color: #EC4C4C;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                width: 120px;
+                border-radius: 20px;
+                font-weight: bold;
+                color: white;
+            ">Log Out</button>
+            </form>
+        </ul>
         {% else %}
-        <a href="/register"><button>register</button></a>
-        <a href="/login"><button>login</button></a>
-        {%endif%}
+        <a href="/register" id="register"><button>Register</button></a>
+        <a href="/login" id="login"><button>Login</button></a>
+        {% endif %}
     </div>
 </header>
 {% endblock %}
