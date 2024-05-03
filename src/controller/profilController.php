@@ -25,6 +25,12 @@ class profilController
         $user = [
             'idUser' => $_SESSION['idUser']
         ];
+        $isConnected = false;
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['idUser'])) {
+            // Si l'utilisateur est connecté, setIsConnected à true
+            $isConnected = true;
+        }
         if ($user['idUser'] < 1) {
             echo "veuiller vous connecter ou créer un compte pour avoir accés a votre profil";
         }
@@ -37,6 +43,7 @@ class profilController
         echo $this->twig->render('profil/profil.html.twig', [
             'readPacksName' => $packsName,
             'displayCard' => $cardDisplay,
+            'isConnected' => $isConnected
         ]);
     }
 

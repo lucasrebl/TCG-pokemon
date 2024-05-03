@@ -22,11 +22,17 @@ class shopController
     {
         session_start();
         include __DIR__ . '/../model/shopModel.php';
+        $isConnected = false;
+        // Vérifie si l'utilisateur est connecté
+        if (isset($_SESSION['idUser'])) {
+            // Si l'utilisateur est connecté, setIsConnected à true
+            $isConnected = true;
+        }
         $this->insertCardID();
         $this->buyPack5();
         $this->buyPack10();
         $this->buyPack15();
-        echo $this->twig->render('shop/shop.html.twig');
+        echo $this->twig->render('shop/shop.html.twig', ['isConnected' => $isConnected]);
     }
 
     public function connectDb()
