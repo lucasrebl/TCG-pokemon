@@ -20,7 +20,8 @@ if (!function_exists('login')) {
                 $_SESSION['passwordUser'] = $user['passwordUser'];
                 $_SESSION['isAdmin'] = $user['isAdmin'];
 
-                echo "Login successful!";
+                header("Location: /");
+                exit;
             } else {
                 echo "email ou mot de passe incorrect";
             }

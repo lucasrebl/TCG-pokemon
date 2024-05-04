@@ -1,0 +1,40 @@
+{% block title %}profil
+{% endblock %}
+
+{% block stylesheet %}
+<link href="/../public/css/profil.css" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+<h3>test profil</h3>
+{% endblock %}
+
+{% block body %}
+{% include 'header.html.twig' %}
+
+
+<div class="test">
+    <div class="pack">
+        <fieldset>
+            <legend>Click on the pokeballs to open the pack !</legend>
+            {% for packs in readPacksName %}
+            {% if packs.isOpen == 0 %}
+            <div class="test2">
+                <form action="/profil" method="post">
+                    <input type="hidden" name="pack_name" value="{{ packs.name }}">
+                    <button id="pokeball" type="submit" name="open_pack"></button>
+                </form>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </fieldset>
+    </div>
+    
+
+    {% for collection in displayCard %}
+    <img src="{{ collection.small_image_url }}" alt="Card Image">
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

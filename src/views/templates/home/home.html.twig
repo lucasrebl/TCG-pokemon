@@ -1,18 +1,26 @@
-{% extends "default.html.twig" %}
-
 {% block title %}home
-{% endblock %}
 
+{% endblock %}
 {% block stylesheet %}
-    <link href="/../public/css/home.css" rel="stylesheet">
+<link rel="stylesheet" href="public/css/home.css">
 {% endblock %}
 
 {% block header %}
-	<h3>test home</h3>
 {% endblock %}
 
 {% block body %}
+{% include 'header.html.twig' %}
+<script src="/../public/js/shop.js"></script>
+
+<div class="encadre">
+    <h2>Why subscribe to TGC Pokemon </h2>
+    <p> - 2 free mega booster</p>
+    <p> - 2 booster packs per month</p>
+    <p> - 1 pikachu card</p>
+</div>
+
+{# <div id="pokemonList"></div>
+<script src="/../public/js/script.js"></script> #}
 
 {% endblock %}
-
 {% block footer %}{% endblock %}

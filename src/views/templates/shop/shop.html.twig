@@ -1,0 +1,27 @@
+{% block title %}
+{% endblock %}
+
+{% block stylesheet %}
+<link href="/../public/css/shop.css" rel="stylesheet">
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+{% include 'header.html.twig' %}
+<div class="achat">
+    <form action="/shop" method="post">
+        <button id="selectRandomCards5" name="pack5" type="submit"><img src="public/img/starter.png"</button style="filter: drop-shadow(0 0px 10px #DAC5FF);" >
+    </form>
+
+    <form action="/shop" method="post">
+        <button id="selectRandomCards15" name="pack15" type="submit"><img src="public/img/premium.png" </button style="filter: drop-shadow(0 0px 10px #FFD700);">
+    </form>
+
+    <form action="/shop" method="post">
+        <button id="selectRandomCards10" name="pack10" type="submit"><img src="public/img/basic.png" </button style="filter: drop-shadow(0 0px 10px #FF0000);">
+    </form>
+</div>
+{% endblock %}
+{% block footer %}{% endblock %}

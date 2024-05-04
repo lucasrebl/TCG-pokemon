@@ -1,26 +1,25 @@
-{% extends "default.html.twig" %}
-
 {% block title %}login
 {% endblock %}
 
 {% block stylesheet %}
-    <link href="/../public/css/login.css" rel="stylesheet">
-{% endblock %}
-
-{% block header %}
-	<h3>test login</h3>
+<link href="/../public/css/login.css" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
+{% include 'header.html.twig' %}
+<div class="container">
+    <h2>Welcome back !</h2>
     <form action="/login" method="post">
-        <label for="email">email:</label>
-        <input type="text" name="email" required>
+        <label for="email">Email:</label>
+        <input type="text" name="email" placeholder="you@mail.com" required>
 
-        <label for="passwordConnexion">Mot de Passe</label>
-        <input type="password" name="passwordConnexion" required>
-
-        <input type="submit" name="submit" value="submit">
+        <label for="passwordConnexion">Password</label>
+        <input type="password" name="passwordConnexion" placeholder="password" required>
+        <div class="center">
+            <button type="submit" name="submit" id="loggin" value="Login">Login</button>
+        </div>
     </form>
+</div>
 {% endblock %}
 
 {% block footer %}{% endblock %}

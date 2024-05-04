@@ -1,0 +1,122 @@
+/* BODY OK */
+body {
+    background-image: url('../css/back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* FIX HEADER OK */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+/* Button style à check */
+
+header .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 16px;
+}
+
+header #login button, #register button {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 120px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white; 
+}
+
+/* LOGIN REGISTER LOGOUT */
+
+#login button {
+    background-color: #EC4C4C; 
+}
+
+#register button {
+    background-color: #1655C1; 
+    margin-right: 32px;
+}
+
+/* TITLE */
+header h3 {
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Navigation menu */
+nav {
+    display: flex;
+    align-items: center;
+    margin-right: 30px; /* Adjust spacing as needed */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10rem 10rem;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 20px; 
+}
+
+.item, .item a {
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+}
+
+.item img {
+    width: 45px;
+}
+
+.item #profil button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    font-size: 20px; 
+}
+                           
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
