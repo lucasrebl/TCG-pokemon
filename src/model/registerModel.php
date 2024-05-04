@@ -23,7 +23,8 @@ if (!function_exists('insertUser')) {
                 $stmt2->bindParam(':email', $email_);
                 $stmt2->bindParam(':passwordUser', $hashed_password);
                 $stmt2->execute();
-                echo "register OK";
+                header("Location: /login");
+                exit;
             }
 
         } catch (PDOException $e) {
